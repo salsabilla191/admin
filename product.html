@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Products</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Admin Dashboard</h2>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="users.html">User</a></li>
+                <li><a href="product.html">Produk</a></li>
+                <li><a href="orders.html">Order</a></li>
+                <li><a href="kategori.html">Kategori</a></li>
+                <li><a href="setting.html">Pengaturan</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Produk</h1>
+                <p>Kelola semua produk yang tersedia di sini.</p>
+            </div>
+
+            <div class="product-table">
+                <h3>Produk tersedia</h3>
+                <table id="productTable">
+                    <thead>
+                        <tr>
+                            <th>ID Produk </th>
+                            <th>Nama Produk</th>
+                            <th>Kategori</th>
+                            <th>Harga</th>
+                            <th>Stok</th>
+                            <th>Status</th>
+                            <th>Tindakan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#001</td>
+                            <td>Midi Dress</td>
+                            <td>Dresses</td>
+                            <td>$120.00</td>
+                            <td>50</td>
+                            <td>Tersedia</td>
+                            <td>
+                                <button class="editBtn">Edit</button>
+                                <button class="deleteBtn">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#002</td>
+                            <td>Mini Dress</td>
+                            <td>Dresses</td>
+                            <td>$75.00</td>
+                            <td>30</td>
+                            <td>Stok habis</td>
+                            <td>
+                                <button class="editBtn">Edit</button>
+                                <button class="deleteBtn">Hapus</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add a script for product management -->
+    <script>
+        // Edit Button Functionality
+        document.querySelectorAll('.editBtn').forEach(function(button) {
+            button.addEventListener('click', function() {
+                let row = button.parentNode.parentNode;
+                let productId = row.cells[0].innerHTML;
+                let productName = prompt('Edit Product Name:', row.cells[1].innerHTML);
+                let category = prompt('Edit Category:', row.cells[2].innerHTML);
+                let price = prompt('Edit Price:', row.cells[3].innerHTML);
+                let stock = prompt('Edit Stock:', row.cells[4].innerHTML);
+                let status = prompt('Edit Status (Available/Out of Stock):', row.cells[5].innerHTML);
+
+                // Update the table row with new values
+                row.cells[1].innerHTML = productName;
+                row.cells[2].innerHTML = category;
+                row.cells[3].innerHTML = '$' + price;
+                row.cells[4].innerHTML = stock;
+                row.cells[5].innerHTML = status;
+            });
+        });
+
+        // Delete Button Functionality
+        document.querySelectorAll('.deleteBtn').forEach(function(button) {
+            button.addEventListener('click', function() {
+                let row = button.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+            });
+        });
+    </script>
+</body>
+</html>

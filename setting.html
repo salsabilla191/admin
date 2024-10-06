@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Settings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Admin Dashboard</h2>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="users.html">User</a></li>
+                <li><a href="product.html">Produk</a></li>
+                <li><a href="orders.html">Order</a></li>
+                <li><a href="kategori.html">Kategori</a></li>
+                <li><a href="report.html">Laporan</a></li>
+                <li><a href="setting.html">Pengaturan</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Settings</h1>
+                <p>Kelola semua laporan disini.</p>
+            </div>
+
+            <div class="settings-table">
+                <h3>Site Settings</h3>
+                <table id="settingsTable">
+                    <thead>
+                        <tr>
+                            <th>nama pengaturan</th>
+                            <th>Setting Value</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Site Title</td>
+                            <td>SillDressy</td>
+                            <td>
+                                <button class="editBtn">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Site Currency</td>
+                            <td>USD</td>
+                            <td>
+                                <button class="editBtn">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Items per Page</td>
+                            <td>10</td>
+                            <td>
+                                <button class="editBtn">Edit</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add a script for settings management -->
+    <script>
+        // Edit Button Functionality
+        document.querySelectorAll('.editBtn').forEach(function(button) {
+            button.addEventListener('click', function() {
+                let row = button.parentNode.parentNode;
+                let settingName = row.cells[0].innerHTML;
+                let settingValue = prompt('Edit ' + settingName + ':', row.cells[1].innerHTML);
+
+                // Update the table row with the new setting value
+                if (settingValue !== null) {
+                    row.cells[1].innerHTML = settingValue;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

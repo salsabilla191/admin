@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Categories</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Admin Dashboard</h2>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="users.html">User</a></li>
+                <li><a href="product.html">Produk</a></li>
+                <li><a href="orders.html">Order</a></li>
+                <li><a href="kategori.html">Kategori</a></li>
+                <li><a href="setting.html">Pengaturan</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Categories</h1>
+                <p>Kelola semua kategori disini.</p>
+            </div>
+
+            <div class="category-table">
+                <h3>Kategori produk</h3>
+                <table id="categoryTable">
+                    <thead>
+                        <tr>
+                            <th>ID Kategori </th>
+                            <th>Nama Kategori </th>
+                            <th>Tindakan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#001</td>
+                            <td>Dresses</td>
+                            <td>
+                                <button class="btn-delete" onclick="deleteCategory(this)">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#002</td>
+                            <td>Shirts</td>
+                            <td>
+                                <button class="btn-delete" onclick="deleteCategory(this)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Form to add new category -->
+                <div class="add-category">
+                    <input type="text" id="newCategoryName" placeholder="Enter new category name">
+                    <button class="btn-add" onclick="addCategory()">Tambah Kategori</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script for handling add and delete category -->
+    <script>
+        // Function to add a new category
+        function addCategory() {
+            let table = document.getElementById("categoryTable").getElementsByTagName('tbody')[0];
+            let newCategoryName = document.getElementById("newCategoryName").value;
+            
+            if (newCategoryName) {
+                let newRow = table.insertRow();
+                let cell1 = newRow.insertCell(0);
+                let cell2 = newRow.insertCell(1);
+                let cell3 = newRow.insertCell(2);
+
+                let categoryID = '#00' + (table.rows.length + 1);
+
+                cell1.innerHTML = categoryID;
+                cell2.innerHTML = newCategoryName;
+                cell3.innerHTML = '<button class="btn-delete" onclick="deleteCategory(this)">Delete</button>';
+
+                document.getElementById("newCategoryName").value = ""; // Clear input field
+            } else {
+                alert("Please enter a category name");
+            }
+        }
+
+        // Function to delete a category
+        function deleteCategory(btn) {
+            let row = btn.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+    </script>
+</body>
+</html>

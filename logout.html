@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Logout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Admin Dashboard</h2>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="users.html">User</a></li>
+                <li><a href="product.html">Produk</a></li>
+                <li><a href="orders.html">Order</a></li>
+                <li><a href="kategori.html">Kategori</a></li>
+                <li><a href="setting.html">Pengaturan</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Logout</h1>
+                <p>You are about to log out from the admin dashboard.</p>
+            </div>
+
+            <div class="logout-table">
+                <h3>Session Information</h3>
+                <table id="logoutTable">
+                    <thead>
+                        <tr>
+                            <th>Session ID</th>
+                            <th>User</th>
+                            <th>Role</th>
+                            <th>Login Time</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12345</td>
+                            <td>Salsabilla</td>
+                            <td>Admin</td>
+                            <td>2024-10-02 10:00 AM</td>
+                            <td>
+                                <button class="logoutBtn">Logout</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add a script for logout functionality -->
+    <script>
+        // Logout Button Functionality
+        document.querySelector('.logoutBtn').addEventListener('click', function() {
+            // Confirmation before logging out
+            if (confirm('Are you sure you want to log out?')) {
+                alert('You have been logged out.');
+                // Redirect to login page or perform other logout actions here
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+</body>
+</html>

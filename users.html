@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Users</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Admin Dashboard</h2>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="users.html">User</a></li>
+                <li><a href="product.html">Produk</a></li>
+                <li><a href="orders.html">Order</a></li>
+                <li><a href="kategori.html">Kategori</a></li>
+                <li><a href="setting.html">Pengaturan</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>User</h1>
+                <p>Kelola semua user disini.</p>
+            </div>
+
+            <div class="user-table">
+                <h3>User Terdaftar</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Nomor Telepon</th>
+                            <th>Alamat</th>
+                            <th>Status</th>
+                            <th>Tindakan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#001</td>
+                            <td>John Doe</td>
+                            <td>john@example.com</td>
+                            <td>+1 555-1234</td>
+                            <td>123 Main St, New York</td>
+                            <td>Active</td>
+                            <td>
+                                <button class="btn-edit">Edit</button>
+                                <button class="btn-delete">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#002</td>
+                            <td>Jane Smith</td>
+                            <td>jane@example.com</td>
+                            <td>+1 555-5678</td>
+                            <td>456 Oak St, Los Angeles</td>
+                            <td>Inactive</td>
+                            <td>
+                                <button class="btn-edit">Edit</button>
+                                <button class="btn-delete">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#003</td>
+                            <td>Michael Johnson</td>
+                            <td>michael@example.com</td>
+                            <td>+1 555-8765</td>
+                            <td>789 Pine St, Chicago</td>
+                            <td>Active</td>
+                            <td>
+                                <button class="btn-edit">Edit</button>
+                                <button class="btn-delete">Hapus</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
